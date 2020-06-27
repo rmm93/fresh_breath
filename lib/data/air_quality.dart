@@ -7,8 +7,6 @@ import 'dart:convert';
 AirQuality airQualityFromJson(String str) =>
     AirQuality.fromJson(json.decode(str));
 
-String airQualityToJson(AirQuality data) => json.encode(data.toJson());
-
 class AirQuality {
   AirQuality({
     this.status,
@@ -22,11 +20,6 @@ class AirQuality {
         status: json["status"],
         data: Data.fromJson(json["data"]),
       );
-
-  Map<String, dynamic> toJson() => {
-        "status": status,
-        "data": data.toJson(),
-      };
 }
 
 class Data {
@@ -64,18 +57,6 @@ class Data {
         forecast: Forecast.fromJson(json["forecast"]),
         debug: Debug.fromJson(json["debug"]),
       );
-
-  Map<String, dynamic> toJson() => {
-        "aqi": aqi,
-        "idx": idx,
-        "attributions": List<dynamic>.from(attributions.map((x) => x.toJson())),
-        "city": city.toJson(),
-        "dominentpol": dominentpol,
-        "iaqi": iaqi.toJson(),
-        "time": time.toJson(),
-        "forecast": forecast.toJson(),
-        "debug": debug.toJson(),
-      };
 }
 
 class Attribution {
@@ -94,12 +75,6 @@ class Attribution {
         name: json["name"],
         logo: json["logo"] == null ? null : json["logo"],
       );
-
-  Map<String, dynamic> toJson() => {
-        "url": url,
-        "name": name,
-        "logo": logo == null ? null : logo,
-      };
 }
 
 class City {
@@ -118,12 +93,6 @@ class City {
         name: json["name"],
         url: json["url"],
       );
-
-  Map<String, dynamic> toJson() => {
-        "geo": List<dynamic>.from(geo.map((x) => x)),
-        "name": name,
-        "url": url,
-      };
 }
 
 class Debug {
@@ -136,10 +105,6 @@ class Debug {
   factory Debug.fromJson(Map<String, dynamic> json) => Debug(
         sync: DateTime.parse(json["sync"]),
       );
-
-  Map<String, dynamic> toJson() => {
-        "sync": sync.toIso8601String(),
-      };
 }
 
 class Forecast {
@@ -152,10 +117,6 @@ class Forecast {
   factory Forecast.fromJson(Map<String, dynamic> json) => Forecast(
         daily: Daily.fromJson(json["daily"]),
       );
-
-  Map<String, dynamic> toJson() => {
-        "daily": daily.toJson(),
-      };
 }
 
 class Daily {
@@ -177,13 +138,6 @@ class Daily {
         pm25: List<O3>.from(json["pm25"].map((x) => O3.fromJson(x))),
         uvi: List<O3>.from(json["uvi"].map((x) => O3.fromJson(x))),
       );
-
-  Map<String, dynamic> toJson() => {
-        "o3": List<dynamic>.from(o3.map((x) => x.toJson())),
-        "pm10": List<dynamic>.from(pm10.map((x) => x.toJson())),
-        "pm25": List<dynamic>.from(pm25.map((x) => x.toJson())),
-        "uvi": List<dynamic>.from(uvi.map((x) => x.toJson())),
-      };
 }
 
 class O3 {
@@ -205,14 +159,6 @@ class O3 {
         max: json["max"],
         min: json["min"],
       );
-
-  Map<String, dynamic> toJson() => {
-        "avg": avg,
-        "day":
-            "${day.year.toString().padLeft(4, '0')}-${day.month.toString().padLeft(2, '0')}-${day.day.toString().padLeft(2, '0')}",
-        "max": max,
-        "min": min,
-      };
 }
 
 class Iaqi {
@@ -252,19 +198,6 @@ class Iaqi {
         t: Co.fromJson(json["t"]),
         w: Co.fromJson(json["w"]),
       );
-
-  Map<String, dynamic> toJson() => {
-        "co": co.toJson(),
-        "dew": dew.toJson(),
-        "h": h.toJson(),
-        "no2": no2.toJson(),
-        "o3": o3.toJson(),
-        "pm10": pm10.toJson(),
-        "pm25": pm25.toJson(),
-        "so2": so2.toJson(),
-        "t": t.toJson(),
-        "w": w.toJson(),
-      };
 }
 
 class Co {
@@ -277,10 +210,6 @@ class Co {
   factory Co.fromJson(Map<String, dynamic> json) => Co(
         v: json["v"].toDouble(),
       );
-
-  Map<String, dynamic> toJson() => {
-        "v": v,
-      };
 }
 
 class Time {
@@ -299,10 +228,4 @@ class Time {
         tz: json["tz"],
         v: json["v"],
       );
-
-  Map<String, dynamic> toJson() => {
-        "s": s.toIso8601String(),
-        "tz": tz,
-        "v": v,
-      };
 }
