@@ -5,7 +5,7 @@ class AirQualityProvider with ChangeNotifier {
   AirQuality _items = AirQuality(
       status: "ok",
       data: Data(
-        aqi: 90,
+        aqi: 140,
         idx: 12428,
         attributions: [
           Attribution(
