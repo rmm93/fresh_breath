@@ -114,7 +114,6 @@ class _SearchScreenState extends State<SearchScreen> {
                 child: Container(
                   margin: const EdgeInsets.only(left: 12.0, bottom: 8.0),
                   decoration: BoxDecoration(
-                    color: Colors.white,
                     borderRadius: BorderRadius.circular(24.0),
                   ),
                   child: TextFormField(
@@ -153,7 +152,7 @@ class _SearchScreenState extends State<SearchScreen> {
           }
           if (snapshot.hasData) {
             final data = snapshot.data;
-            print(data["data"][0]["station"]["name"]);
+            print(data["data"][0]["station"]["url"]);
             if (data["data"].length == 0) {
               return Text('Type a nearby place');
             }
