@@ -95,7 +95,7 @@ class AirQualityProvider with ChangeNotifier {
     //   ),
     // ),
   ];
-  List<SearchData> _searchData = [];
+  SearchData _searchData;
   
   Future<void> fetchAndSetData() async {
     final url = 'https://api.waqi.info/feed/here/?token=$apiKey';
@@ -114,12 +114,21 @@ class AirQualityProvider with ChangeNotifier {
     final searchResponse = await get(searchUrl);
     final searchResponseData = json.decode(searchResponse.body);
     final city = SearchData.fromJson(searchResponseData);
-    final url = 'https://api.waqi.info/feed/${city.data[0].station.url}/?token=$apiKey';
+    _searchData = city;
+    notifyListeners();
+  }
+
+  Future<void> dataFromSearch(int index) async {
+    final url = 'https://api.waqi.info/feed/${_searchData.data[index].station.url}/?token=$apiKey';
     final response = await get(url);
     final responseData = json.decode(response.body);
 
-    _items.insert(0, AirQuality.fromJson(responseData));
+    _items.add(AirQuality.fromJson(responseData));
     notifyListeners();
+  }
+
+  SearchData get cities {
+    return _searchData;
   }
 
   List<AirQuality> get items {

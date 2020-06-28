@@ -53,14 +53,11 @@ class _AirFirstPageState extends State<AirFirstPage>
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    return Scaffold(
-      body: Center(
-        child: Text(
-          '$_number',
-          style: textTheme.headline1.copyWith(fontWeight: FontWeight.bold),
-        ),
+    return Center(
+      child: Text(
+        '$_number',
+        style: textTheme.headline1.copyWith(fontWeight: FontWeight.bold),
       ),
-      
     );
   }
 }
