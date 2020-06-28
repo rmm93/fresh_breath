@@ -21,19 +21,20 @@ class HomePage extends HookWidget {
             )
           : Scaffold(
               body: SafeArea(
-                child: PageView(
+                child: PageView.builder(
+                  itemCount: airData.items.length,
                   physics: BouncingScrollPhysics(),
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    // Text(airData.items[0].status),
-                    AirFirstPage(toValue: airData.items[0].data.aqi.toDouble()),
-                    DetailScreen(),
-                  ],
+                  // scrollDirection: Axis.vertical,
+                  itemBuilder: (context, index) => AirFirstPage(
+                    toValue: airData.items[index].data.aqi.toDouble(),
+                    airQuality: airData.items[index],
+                  ),
                 ),
               ),
               floatingActionButton: FloatingActionButton(
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => SearchScreen()));
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => SearchScreen()));
                 },
                 child: Icon(Icons.search),
               ),

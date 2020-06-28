@@ -110,17 +110,8 @@ class AirQualityProvider with ChangeNotifier {
     } catch (e) {}
   }
 
-  Future<void> searchCity() async {
-    final searchUrl = 'https://api.waqi.info/search/?token=$apiKey&keyword=bangalore';
-    final searchResponse = await get(searchUrl);
-    final searchResponseData = json.decode(searchResponse.body);
-    final city = SearchData.fromJson(searchResponseData);
-    _searchData = city;
-    notifyListeners();
-  }
-
-  Future<void> dataFromSearch(int index) async {
-    final url = 'https://api.waqi.info/feed/${_searchData.data[index].station.url}/?token=$apiKey';
+  Future<void> dataFromSearch(String cityUrl) async {
+    final url = 'https://api.waqi.info/feed/$cityUrl/?token=$apiKey';
     final response = await get(url);
     final responseData = json.decode(response.body);
 

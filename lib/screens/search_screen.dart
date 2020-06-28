@@ -2,9 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:freshbreath/data/air_quaity_provider.dart';
 import 'package:freshbreath/data/confidential.dart';
 import 'package:freshbreath/data/search_data.dart';
 import 'package:http/http.dart';
+import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class SearchScreen extends StatefulWidget {
@@ -161,6 +163,13 @@ class _SearchScreenState extends State<SearchScreen> {
                 return ListTile(
                   leading: Icon(Icons.location_city),
                   title: Text(data["data"][index]["station"]["name"]),
+                  onTap: () async {
+                    print(data["data"][index]["station"]["url"]);
+                    await Provider.of<AirQualityProvider>(context, listen: false)
+                        .dataFromSearch(
+                            data["data"][index]["station"]["url"]);
+                    Navigator.of(context).pop();
+                  },
                 );
               },
             );
