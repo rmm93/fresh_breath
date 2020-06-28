@@ -11,7 +11,9 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => AirQualityProvider(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: HomePage(),
+        theme: ThemeData.dark(),
       ),
     );
   }

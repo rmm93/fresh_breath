@@ -6,6 +6,7 @@ import 'package:freshbreath/data/confidential.dart';
 import 'package:http/http.dart';
 
 class AirQualityProvider with ChangeNotifier {
+
   List<AirQuality> _items = [
     // AirQuality(
     //   status: "ok",
