@@ -389,7 +389,7 @@ class _AirFirstPageState extends State<AirFirstPage>
                       width: 10.0,
                     ),
                     Text(
-                      '${widget.airQuality.data.iaqi.t.v}°C',
+                      '${widget.airQuality.data.iaqi.t.v.toStringAsPrecision(2)}°C',
                       style: GoogleFonts.openSans(),
                     ),
                   ],
