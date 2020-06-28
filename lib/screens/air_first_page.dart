@@ -99,7 +99,7 @@ class _AirFirstPageState extends State<AirFirstPage>
                         Icon(Icons.cloud_queue),
                         SizedBox(width: 10.0,),
                         Text(
-                          '${widget.airQuality.data.iaqi.t.v}°C',
+                          '${widget.airQuality.data.iaqi.t.v.toStringAsPrecision(2)}°C',
                           style: textTheme.bodyText1
                               .copyWith(fontWeight: FontWeight.bold),
                         ),

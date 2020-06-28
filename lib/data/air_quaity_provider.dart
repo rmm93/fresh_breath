@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:freshbreath/data/air_quality.dart';
 import 'package:freshbreath/data/confidential.dart';
+import 'package:freshbreath/data/search_data.dart';
 import 'package:http/http.dart';
 
 class AirQualityProvider with ChangeNotifier {
@@ -95,7 +96,8 @@ class AirQualityProvider with ChangeNotifier {
     //   ),
     // ),
   ];
-
+  SearchData _searchData;
+  
   Future<void> fetchAndSetData() async {
     final url = 'https://api.waqi.info/feed/here/?token=$apiKey';
     try {
@@ -106,6 +108,19 @@ class AirQualityProvider with ChangeNotifier {
       notifyListeners();
       return;
     } catch (e) {}
+  }
+
+  Future<void> dataFromSearch(String cityUrl) async {
+    final url = 'https://api.waqi.info/feed/$cityUrl/?token=$apiKey';
+    final response = await get(url);
+    final responseData = json.decode(response.body);
+
+    _items.add(AirQuality.fromJson(responseData));
+    notifyListeners();
+  }
+
+  SearchData get cities {
+    return _searchData;
   }
 
   List<AirQuality> get items {
