@@ -168,6 +168,7 @@ class Iaqi {
     this.h,
     this.no2,
     this.o3,
+    this.p,
     this.pm10,
     this.pm25,
     this.so2,
@@ -180,6 +181,7 @@ class Iaqi {
   Co h;
   Co no2;
   Co o3;
+  Co p;
   Co pm10;
   Co pm25;
   Co so2;
@@ -192,7 +194,8 @@ class Iaqi {
         h: Co.fromJson(json["h"]),
         no2: Co.fromJson(json["no2"]),
         o3: Co.fromJson(json["o3"]),
-        pm10: Co.fromJson(json["pm10"]),
+        p: Co.fromJson(json["p"]),
+        pm10: json["pm10"] == null ? null : Co.fromJson(json["pm10"]),
         pm25: Co.fromJson(json["pm25"]),
         so2: Co.fromJson(json["so2"]),
         t: Co.fromJson(json["t"]),

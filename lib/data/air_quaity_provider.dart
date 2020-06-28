@@ -95,15 +95,13 @@ class AirQualityProvider with ChangeNotifier {
     // ),
   ];
 
-  Future<void> getLocation() async {}
-  
   Future<void> fetchAndSetData() async {
-    final url = 'https://api.waqi.info/feed/geo:30.7350626;76.6934887/?token=$apiKey';
+    final url = 'https://api.waqi.info/feed/here/?token=$apiKey';
     try {
       final response = await get(url);
       final responseData = json.decode(response.body);
       _items.insert(0, AirQuality.fromJson(responseData));
-      print(_items[0].status);
+      // print(_items[0].status);
       notifyListeners();
       return;
     } catch (e) {}
