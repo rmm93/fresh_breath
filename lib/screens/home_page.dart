@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.vertical,
           children: [
-            AirFirstPage(toValue: airData.data.aqi.toDouble()),
+            AirFirstPage(toValue: airData.data.aqi.toDouble(),airQuality: airData,),
             DetailScreen(),
           ],
         ),
