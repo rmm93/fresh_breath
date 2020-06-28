@@ -10,7 +10,7 @@ class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final airData = Provider.of<AirQualityProvider>(context);
-    final future = useMemoized(() => airData.fetchAndSetData());
+    final future = useMemoized(() => airData.searchCity());
     return FutureBuilder(
       future: future,
       builder: (context, snapshot) => snapshot.connectionState == ConnectionState.waiting
@@ -23,6 +23,7 @@ class HomePage extends HookWidget {
                   physics: BouncingScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   children: [
+                    // Text(airData.items[0].status),
                     AirFirstPage(toValue: airData.items[0].data.aqi.toDouble()),
                     DetailScreen(),
                   ],
