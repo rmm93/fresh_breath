@@ -47,7 +47,7 @@ class _ChatBotState extends State<ChatBot> {
       child: Scaffold(
           appBar: AppBar(
             title: const Text(
-              'Get Suggestions.',
+              'Impact Bot',
             ),
             backgroundColor: Colors.red,
           ),
