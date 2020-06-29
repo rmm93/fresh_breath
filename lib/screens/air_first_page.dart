@@ -106,27 +106,27 @@ class _AirFirstPageState extends State<AirFirstPage>
             label: "PM 2.5"),
         getDetailsRowItem(
             color: Colors.green,
-            num: widget.airQuality.data.iaqi.o3.toString() == "null"
+          num: widget.airQuality.data.iaqi.o3.toString() == "null"
                 ? 'N/A'
                 : widget.airQuality.data.iaqi.o3.v.toString(),
             label: "O3"),
         getDetailsRowItem(
             color: Colors.green,
-            num: widget.airQuality.data.iaqi.no2.toString() == "null"
+            num: widget.airQuality.data.iaqi.no2.toString() == null
                 ? 'N/A'
                 : widget.airQuality.data.iaqi.no2.v.toString(),
             label: "NO2"),
         getDetailsRowItem(
             color: Colors.green,
-            num: widget.airQuality.data.iaqi.so2.toString() == "null"
+          num: widget.airQuality.data.iaqi.so2.toString() == "null"
                 ? 'N/A'
                 : widget.airQuality.data.iaqi.so2.v.toString(),
             label: "SO2"),
         getDetailsRowItem(
             color: Colors.green,
-            num: widget.airQuality.data.iaqi.co.toString() == "null"
+          num: widget.airQuality.data.iaqi.co.toString() == "null"
                 ? 'N/A'
-                : widget.airQuality.data.iaqi.co.v.toString(),
+          : widget.airQuality.data.iaqi.co.v.toString(),
             label: "CO"),
       ],
     );

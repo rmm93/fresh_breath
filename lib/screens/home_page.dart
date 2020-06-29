@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:freshbreath/data/app_images.dart';
 import 'package:freshbreath/screens/search_screen.dart';
+import './chatbot.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -30,12 +31,19 @@ class HomePage extends HookWidget {
                   ),
                 ),
               ),
+              // floatingActionButton: FloatingActionButton(
+              //   onPressed: () {
+              //     Navigator.of(context).push(
+              //         MaterialPageRoute(builder: (context) => SearchScreen()));
+              //   },
+              //   child: Icon(Icons.search),
+              // ),
               floatingActionButton: FloatingActionButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => SearchScreen()));
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => ChatBot()));
                 },
-                child: Icon(Icons.search),
+                child: Icon(Icons.chat),
               ),
             ),
     );
