@@ -17,7 +17,7 @@ class AirQuality {
   Data data;
 
   factory AirQuality.fromJson(Map<String, dynamic> json) => AirQuality(
-        status: json["status"] == null ? null : json["status"],
+        status: json["status"],
         data: json["data"] == null ? null : Data.fromJson(json["data"]),
       );
 }

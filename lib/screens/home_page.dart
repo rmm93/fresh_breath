@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'package:freshbreath/data/app_images.dart';
-import 'package:freshbreath/screens/search_screen.dart';
-import './chatbot.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
+import 'package:freshbreath/data/app_images.dart';
+import 'package:freshbreath/screens/chatbot.dart';
 import 'package:freshbreath/data/air_quaity_provider.dart';
 import 'package:freshbreath/screens/air_first_page.dart';
 
@@ -23,8 +22,7 @@ class HomePage extends HookWidget {
               body: SafeArea(
                 child: PageView.builder(
                   itemCount: airData.items.length,
-                  physics: BouncingScrollPhysics(),
-                  // scrollDirection: Axis.vertical,
+                  physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) => AirFirstPage(
                     toValue: airData.items[index].data.aqi.toDouble(),
                     airQuality: airData.items[index],
@@ -43,7 +41,9 @@ class HomePage extends HookWidget {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) => ChatBot()));
                 },
-                child: Icon(Icons.chat),
+                backgroundColor: Colors.amber,
+                heroTag: 'bot',
+                child: const Icon(FontAwesomeIcons.robot),
               ),
             ),
     );
@@ -51,33 +51,30 @@ class HomePage extends HookWidget {
 
   Widget loadingScreen() {
     return Scaffold(
-      body: Container(
-        child: Stack(
-          overflow: Overflow.visible,
-          children: <Widget>[
-            Image.asset(
-              splash,
-              fit: BoxFit.fill,
+      body: Stack(
+        overflow: Overflow.visible,
+        children: <Widget>[
+          Image.asset(
+            splash,
+            fit: BoxFit.fill,
+          ),
+          Container(
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset(
+                  splash_title,
+                  width: 300.0,
+                ),
+                const SizedBox(
+                  height: 50.0,
+                ),
+                const CircularProgressIndicator()
+              ],
             ),
-            Container(
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Image.asset(
-                    splash_title,
-                    width: 300.0,
-                  ),
-                  SizedBox(
-                    height: 50.0,
-                  ),
-                  CircularProgressIndicator()
-                ],
-              ),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

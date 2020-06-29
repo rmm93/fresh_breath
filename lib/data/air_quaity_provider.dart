@@ -1,14 +1,15 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:http/http.dart';
+
 import 'package:freshbreath/data/air_quality.dart';
 import 'package:freshbreath/data/confidential.dart';
 import 'package:freshbreath/data/search_data.dart';
-import 'package:http/http.dart';
 
 class AirQualityProvider with ChangeNotifier {
 
-  List<AirQuality> _items = [
+  final List<AirQuality> _items = [
     // AirQuality(
     //   status: "ok",
     //   data: Data(

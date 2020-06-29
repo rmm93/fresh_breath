@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:freshbreath/data/air_quality.dart';
-import 'package:freshbreath/data/app_images.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_icons/weather_icons.dart';
+
+import 'package:freshbreath/data/air_quality.dart';
+import 'package:freshbreath/data/app_images.dart';
+import 'package:freshbreath/screens/search_screen.dart';
 
 class AirFirstPage extends StatefulWidget {
   const AirFirstPage({
@@ -76,15 +79,14 @@ class _AirFirstPageState extends State<AirFirstPage>
 
   Widget getNewHome() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        SizedBox(
+        const SizedBox(
           height: 30.0,
         ),
         getTopLocationRow(),
         getMainAQIInfo(),
         getTemperatureRow(),
-        SizedBox(
+        const SizedBox(
           height: 30.0,
         ),
         getBottomDetailsRow(),
@@ -94,9 +96,7 @@ class _AirFirstPageState extends State<AirFirstPage>
 
   Widget getBottomDetailsRow() {
     return Wrap(
-      direction: Axis.horizontal,
       alignment: WrapAlignment.spaceAround,
-      runAlignment: WrapAlignment.start,
       children: <Widget>[
         getDetailsRowItem(
             color: _aqiColor,
@@ -106,7 +106,7 @@ class _AirFirstPageState extends State<AirFirstPage>
             label: "PM 2.5"),
         getDetailsRowItem(
             color: Colors.green,
-          num: widget.airQuality.data.iaqi.o3.toString() == "null"
+            num: widget.airQuality.data.iaqi.o3.toString() == "null"
                 ? 'N/A'
                 : widget.airQuality.data.iaqi.o3.v.toString(),
             label: "O3"),
@@ -118,15 +118,15 @@ class _AirFirstPageState extends State<AirFirstPage>
             label: "NO2"),
         getDetailsRowItem(
             color: Colors.green,
-          num: widget.airQuality.data.iaqi.so2.toString() == "null"
+            num: widget.airQuality.data.iaqi.so2.toString() == "null"
                 ? 'N/A'
                 : widget.airQuality.data.iaqi.so2.v.toString(),
             label: "SO2"),
         getDetailsRowItem(
             color: Colors.green,
-          num: widget.airQuality.data.iaqi.co.toString() == "null"
+            num: widget.airQuality.data.iaqi.co.toString() == "null"
                 ? 'N/A'
-          : widget.airQuality.data.iaqi.co.v.toString(),
+                : widget.airQuality.data.iaqi.co.v.toString(),
             label: "CO"),
       ],
     );
@@ -134,21 +134,21 @@ class _AirFirstPageState extends State<AirFirstPage>
 
   Widget getDetailsRowItem({Color color, String num, String label}) {
     return Container(
-      margin: EdgeInsets.all(20.0),
+      margin: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
             color: Colors.white.withOpacity(0.3),
-            offset: Offset(-6.0, -6.0),
+            offset: const Offset(-6.0, -6.0),
             blurRadius: 16.0,
           ),
           BoxShadow(
             color: Colors.black.withOpacity(0.2),
-            offset: Offset(6.0, 6.0),
+            offset: const Offset(6.0, 6.0),
             blurRadius: 16.0,
           ),
         ],
-        color: Color(0xFFEFEEEE),
+        color: const Color(0xFFEFEEEE),
         borderRadius: BorderRadius.circular(50.0),
       ),
       width: screenWidth / 6,
@@ -174,7 +174,6 @@ class _AirFirstPageState extends State<AirFirstPage>
 
   Widget getTemperatureRow() {
     return Row(
-      mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         tempRowItem(
@@ -201,21 +200,19 @@ class _AirFirstPageState extends State<AirFirstPage>
         boxShadow: [
           BoxShadow(
             color: Colors.white.withOpacity(0.3),
-            offset: Offset(-6.0, -6.0),
+            offset: const Offset(-6.0, -6.0),
             blurRadius: 16.0,
           ),
           BoxShadow(
             color: Colors.black.withOpacity(0.2),
-            offset: Offset(6.0, 6.0),
+            offset: const Offset(6.0, 6.0),
             blurRadius: 16.0,
           ),
         ],
-        color: Color(0xFFEFEEEE),
+        color: const Color(0xFFEFEEEE),
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           BoxedIcon(
@@ -224,7 +221,7 @@ class _AirFirstPageState extends State<AirFirstPage>
             color: Colors.black38,
           ),
           Text(
-            num,
+            num.substring(0, 4),
             style: GoogleFonts.openSans(),
           ),
           Text(
@@ -241,7 +238,7 @@ class _AirFirstPageState extends State<AirFirstPage>
       alignment: Alignment.center,
       children: <Widget>[
         Container(
-          margin: EdgeInsets.all(20.0),
+          margin: const EdgeInsets.all(20.0),
           width: screenWidth,
           height: screenHeight / 8,
 //          decoration: BoxDecoration(
@@ -255,12 +252,12 @@ class _AirFirstPageState extends State<AirFirstPage>
             boxShadow: [
               BoxShadow(
                 color: _aqiColor.withOpacity(0.3),
-                offset: Offset(-6.0, -6.0),
+                offset: const Offset(-6.0, -6.0),
                 blurRadius: 16.0,
               ),
               BoxShadow(
                 color: _aqiColor.withOpacity(0.2),
-                offset: Offset(6.0, 6.0),
+                offset: const Offset(6.0, 6.0),
                 blurRadius: 16.0,
               ),
             ],
@@ -271,7 +268,6 @@ class _AirFirstPageState extends State<AirFirstPage>
         Padding(
           padding: const EdgeInsets.all(20.0),
           child: Row(
-            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Image.asset(
@@ -292,7 +288,7 @@ class _AirFirstPageState extends State<AirFirstPage>
                 ],
               ),
               Text(
-                '$_aqiStatus',
+                _aqiStatus,
                 textAlign: TextAlign.center,
                 style: GoogleFonts.saira(
                     fontSize: 14.0, fontWeight: FontWeight.bold),
@@ -306,11 +302,25 @@ class _AirFirstPageState extends State<AirFirstPage>
 
   Widget getTopLocationRow() {
     return Row(
-      mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Icon(Icons.location_on),
-        Text(widget.airQuality.data.city.name)
+        Expanded(child: Container()),
+        Expanded(child: Container()),
+        const Icon(Icons.location_on),
+        Text(widget.airQuality.data.city.name),
+        Expanded(child: Container()),
+        Padding(
+          padding: const EdgeInsets.only(right: 8.0),
+          child: IconButton(
+            icon: const Icon(
+              FontAwesomeIcons.searchPlus,
+              size: 20,
+            ),
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => SearchScreen()),
+            ),
+          ),
+        ),
       ],
     );
   }
