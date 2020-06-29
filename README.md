@@ -11,9 +11,12 @@ Flutter application for Flutter Hackathon 2020
 ## Motivation
 <p>The origin of this pandemic was the lack of empathy people showed to the environment and to other creatures living on this planet. We saw the positive impact our "staying at home" had on the planet. For that we believe that it is important to raise awareness of how pollution is affecting us and how we can take actions to make things better. Our app focuses on air pollution, it keeps users informed by giving AQI readings in their area with details on pollutants and offers advice on how to help.</p>
 
+## Download APK
+<p>https://github.com/rmm93/fresh_breath/blob/master/README%20items/Fresh_Breath.apk</p>
+
 ## Screenshots
-<img src="https://github.com/rmm93/fresh_breath/blob/master/README%20items/Screenhot%20(1).png" width = 400> <img src="https://github.com/rmm93/fresh_breath/blob/master/README%20items/Screenhot%20(3).png" width = 400>
-<img src="https://github.com/rmm93/fresh_breath/blob/master/README%20items/Screenhot%20(4).png" width = 400> <img src="https://github.com/rmm93/fresh_breath/blob/master/README%20items/Screenhot%20(2).png" width = 400>
+<img src="https://github.com/rmm93/fresh_breath/blob/master/README%20items/Screenshot%20(1).png" width = 400> <img src="https://github.com/rmm93/fresh_breath/blob/master/README%20items/Screenshot%20(3).png" width = 400>
+<img src="https://github.com/rmm93/fresh_breath/blob/master/README%20items/Screenshot%20(4).png" width = 400> <img src="https://github.com/rmm93/fresh_breath/blob/master/README%20items/Screenshot%20(2).png" width = 400>
 
 ## Getting Started
 
