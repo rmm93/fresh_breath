@@ -1,4 +1,4 @@
-# Fresh Breadth
+# Fresh Breath
 
 Flutter application for Flutter Hackathon 2020
 
