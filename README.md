@@ -9,7 +9,7 @@ Flutter application for Flutter Hackathon 2020
 <p>This app uses an https://aqicn.org API to keep the user informed about air quality in his region or any region he wishes to search, it also has an automated chatbot to help answer questions when necessary.</p>
 
 ## Motivation
-<p>During the pandemic we learnt that though virus outbreak are not in our control. But what is in our control is keeping the surroundings liveable. For that air pollution plays a major role to eliminate respiratory illnesses.</p>
+<p>The origin of this pandemic was the lack of empathy people showed to the environment and to other creatures living on this planet. We saw the positive impact our "staying at home" had on the planet. For that we believe that it is important to raise awareness of how pollution is affecting us and how we can take actions to make things better. Our app focuses on air pollution, it keeps users informed by giving AQI readings in their area with details on pollutants and offers advice on how to help.</p>
 
 ## Screenshots
 <img src="https://github.com/rmm93/fresh_breath/blob/master/README%20items/Screenhot%20(1).png" width = 400> <img src="https://github.com/rmm93/fresh_breath/blob/master/README%20items/Screenhot%20(3).png" width = 400>
