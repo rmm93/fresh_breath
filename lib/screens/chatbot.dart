@@ -17,13 +17,9 @@ class ChatBot extends StatefulWidget {
 
 class _ChatBotState extends State<ChatBot> {
   Future<void> response(query) async {
-    final AuthGoogle authGooglee =
-        await AuthGoogle(fileJson: "assets/first-hpxaok-9db5da2dba28.json")
-            .build();
     final AuthGoogle authGoogle =
-        await AuthGoogle(fileJson: "assets/first-hpxaok-359644c56ff9.json")
+        await AuthGoogle(fileJson: "123")
             .build();
-    //await AuthGoogle(fileJson: "assets/first-hpxaok-359644c56ff9.json")
     final Dialogflow dialogFlow =
         await Dialogflow(authGoogle: authGoogle, language: Language.english);
     final AIResponse aiResponse = await dialogFlow.detectIntent(query);
